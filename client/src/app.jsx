@@ -2,7 +2,7 @@ import React from 'react'
 import reactDOM from 'react-dom'
 
 class App extends React.Component {
-  constructor(props]) {
+  constructor(props) {
     super(props)
     this.state = {}
   }
@@ -10,4 +10,4 @@ class App extends React.Component {
     return (<div>Hello World!</div>)
   }
 }
-reactDOM.render(<App/>, document.getElementByID('app'))
+reactDOM.render(<App/>, document.getElementById('app'))
