@@ -1,19 +1,23 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
-  "engines": {
-    "node": ">=6.13.0"
+  "name": "title.banner",
+  "version": "1.0.0",
+  "description": "> Project description",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpt25-FEC-tatertots/Title.Banner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpt25-FEC-tatertots/Title.Banner/issues"
+  },
+  "homepage": "https://github.com/rpt25-FEC-tatertots/Title.Banner#readme",
   "dependencies": {
-    "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
-  },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
   }
 }
