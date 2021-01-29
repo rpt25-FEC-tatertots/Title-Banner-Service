@@ -6,7 +6,7 @@ module.exports = {
   entry: `${SRC_DIR}/app.jsx`,
   output: {
     path: path.join(__dirname, 'public/dist'),
-    filename: "bundle.js"
+    filename: "title_banner.js"
   },
   module: {
     rules: [
