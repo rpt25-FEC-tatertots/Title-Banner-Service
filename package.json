@@ -4,7 +4,7 @@
   "description": "> Project description",
   "main": ".eslintrc.js",
   "scripts": {
-    "seedDB": "node ./database/seed.js",
+    "postinstall": "node ./database/seed.js",
     "client-dev": "webpack -d --watch",
     "server-dev": "nodemon ./server"
   },
