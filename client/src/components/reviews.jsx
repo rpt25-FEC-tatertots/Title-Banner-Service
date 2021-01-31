@@ -5,13 +5,16 @@ const ReviewsContainer = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 6rem .5rem;
+padding: 0 .5 1rem;
 `;
 const StyledA = styled.a`
+:visited {
+  color: inherit;
+}
 margin: 10px;
 font: 12px;
 `
-const Star = styled.h2`
+const Star = styled.div`
   letter-spacing: 3px;
   background: linear-gradient(90deg,
     black ${(props) => props.percent}%,
