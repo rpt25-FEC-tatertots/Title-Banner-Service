@@ -15,7 +15,8 @@ module.exports = {
         loader: 'babel-loader',
         include: SRC_DIR,
         options: {
-          presets: ['@babel/react', '@babel/preset-env']
+          presets: ['@babel/react', '@babel/preset-env', {plugins: ['@babel/plugin-proposal-class-properties']}]
+
         }
       },
       {
