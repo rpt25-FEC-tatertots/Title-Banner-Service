@@ -1,7 +1,7 @@
 const express = require ('express');
 const db = require('../database/index.js')
 const App = express();
-const Port =  process.env.PORT || 7003;
+const Port =  process.env.PORT || 5003;
 const reviews = require('./MockReview.js');
 App.use(express.static('./public/dist'))
 App.use('/:productID/', express.static('./public/dist'))
