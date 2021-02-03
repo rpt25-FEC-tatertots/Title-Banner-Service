@@ -23,6 +23,11 @@
 
 
 > NPM Install, the postInstall script will seed the database with new information
+> run webpack to compile the title_banner.js bundle in the ./public/dist folder
+> if changes need to be made, NPM run client-dev will set webpack to watching the files and re-compiling with changes
+> NPM run server-dev to start the server listening
+> If you are using this service as a stand-alone service, just browse to http://localhost:5003/:productID
+> If you are using this service on a proxy you will need a div available with the id="title-banner", the app will load itself into that div.
 
 ## Requirements
 
