@@ -6,7 +6,7 @@ module.exports = {
   entry: `${SRC_DIR}/app.jsx`,
   output: {
     path: path.join(__dirname, 'public/dist'),
-    filename: "bundle.js"
+    filename: "title_banner.js"
   },
   module: {
     rules: [
@@ -15,7 +15,8 @@ module.exports = {
         loader: 'babel-loader',
         include: SRC_DIR,
         options: {
-          presets: ['@babel/react', '@babel/preset-env']
+          presets: ['@babel/react', '@babel/preset-env', {plugins: ['@babel/plugin-proposal-class-properties']}]
+
         }
       },
       {
