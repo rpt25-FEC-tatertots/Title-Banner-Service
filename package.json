@@ -4,9 +4,9 @@
   "description": "> Project description",
   "main": ".eslintrc.js",
   "scripts": {
-    "seedDB": "nodemon -r dotenv/config seed.js",
+    "postinstall": "node ./database/seed.js",
     "client-dev": "webpack -d --watch",
-    "server-dev": "nodemon -r dotenv/config ./server"
+    "server-dev": "nodemon ./server"
   },
   "repository": {
     "type": "git",
@@ -19,22 +19,25 @@
   },
   "homepage": "https://github.com/rpt25-FEC-tatertots/Title.Banner#readme",
   "dependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
     "axios": "^0.21.1",
-    "babel-loader": "^8.2.2",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mockaroo": "^0.1.7",
-    "nodemon": "^2.0.7",
+    "faker": "^5.2.0",
     "path": "^0.12.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "sqlite3": "^5.0.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10"
+    "@babel/core": "^7.12.10",
+    "@babel/cli": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "nodemon": "^2.0.7",
+    "babel-loader": "^8.2.2",
+    "dotenv": "^8.2.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
   }
 }

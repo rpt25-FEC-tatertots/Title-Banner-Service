@@ -1,13 +1,17 @@
 # Project Name
 
-> Project description
+> Title-Banner Service for rpt25-FEC-tater-tots
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/rpt25-FEC-tatertots/similar-to-this-product.git
+  - https://github.com/rpt25-FEC-tatertots/GiGi-DetailedImages.git
+  - https://github.com/rpt25-FEC-tatertots/Image-Service-David.git
+  - https://github.com/rpt25-FEC-tatertots/overview.git
+  - https://github.com/rpt25-FEC-tatertots/GiGi-Sourcing.git
+  - https://github.com/rpt25-FEC-tatertots/Inventory-Service-Danny.git
+  - https://github.com/rpt25-FEC-tatertots/Reviews-Service-David.git
+  - https://github.com/rpt25-FEC-tatertots/proxy-danny.git
 
 ## Table of Contents
 
@@ -17,7 +21,8 @@
 
 ## Usage
 
-> Some usage instructions
+
+> NPM Install, the postInstall script will seed the database with new information
 
 ## Requirements
 
