@@ -91,7 +91,7 @@ class Banner extends React.Component {
           <BuyInfo onClick={()=> this.scrollTo("reviews")}>{this.props.count} Reviews</BuyInfo>
           <BuyInfo onClick={() => document.getElementById('guide').click()}>Size{' & '}Fit</BuyInfo>
           <BuyInfo onClick={()=> this.scrollTo("impact")}>Impact</BuyInfo>
-          <BuyButton onClick={() => document.getElemendById('buy').click()} buy={this.props.buy}>{this.props.buy}</BuyButton>
+          <BuyButton onClick={() => document.getElementById('buy').click()} buy={this.props.buy}>{this.props.buy}</BuyButton>
         </BuyContainer>
         </Navbar>
   </NavbarContainer >
