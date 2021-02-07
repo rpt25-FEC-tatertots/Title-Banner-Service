@@ -15,7 +15,11 @@ App.get('/title/:productID', (req, res) => {
     .catch((err) => res.status(500).send(err.message))
 });
 App.get('/reviews/:productID', (req, res) => {
-  res.send(reviews);
+  db.doStuff(`select rating from reviews where productid = '${req.params.productID}'`)
+    .then(data => {
+      res.send(data)
+    })
+    .catch((err) => res.status(500).send(err.message))
 });
 
 

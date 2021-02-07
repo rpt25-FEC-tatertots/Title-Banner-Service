@@ -4,12 +4,13 @@ import Title from './components/title.jsx';
 import Reviews from './components/reviews.jsx';
 import axios from 'axios';
 import Banner from './components/banner.jsx';
+import { useLocation } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      hash: window.location.hash,
       titleData: {title: '', categoryName: ''},
       reviewAvg: 4.7,
       reviewCount: 14,
@@ -25,12 +26,20 @@ class App extends React.Component {
       });
   };
 
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      this.setState({hash: window.location.hash})
+    })
+  }
+  componentWillUnmount() {
+    window.removeEventListener('hashchange')
+  }
   render() {
     return (
       <>
         <Banner
           count={this.state.reviewCount}
-          buy={this.props.buy ? this.props.buy : "Buy"}
+          buy={this.state.hash}
           titleData={this.state.titleData}
         />
           <Title title={this.state.titleData.title}/>

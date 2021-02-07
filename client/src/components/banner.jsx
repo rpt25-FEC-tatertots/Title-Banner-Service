@@ -80,8 +80,12 @@ class Banner extends React.Component {
     view.scrollIntoView({behavior: 'smooth'});
   }
   render() {
+    const search = this.props.location;
+    const name = new URLSearchParams(search).get("OOS");
     return (
       <NavbarContainer id="banner" scrollingDown={this.state.scrollingDown}>
+        {console.log(search)}
+        {/* {console.log(name)} */}
         <Navbar>
         <LinkContainer>
           <Links href=''>{this.props.titleData.categoryName}</Links>
@@ -91,7 +95,7 @@ class Banner extends React.Component {
           <BuyInfo onClick={()=> this.scrollTo("reviews")}>{this.props.count} Reviews</BuyInfo>
           <BuyInfo onClick={() => document.getElementById('guide').click()}>Size{' & '}Fit</BuyInfo>
           <BuyInfo onClick={()=> this.scrollTo("impact")}>Impact</BuyInfo>
-          <BuyButton onClick={() => document.getElementById('buy').click()} buy={this.props.buy}>{this.props.buy}</BuyButton>
+          <BuyButton onClick={() => document.getElementById('buy').click()} >{this.props.buy}</BuyButton>
         </BuyContainer>
         </Navbar>
   </NavbarContainer >
