@@ -4,33 +4,38 @@ import Title from './components/title.jsx';
 import Reviews from './components/reviews.jsx';
 import axios from 'axios';
 import Banner from './components/banner.jsx';
+import { useLocation } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
       titleData: {title: '', categoryName: ''},
-      reviewAvg: 4.7,
-      reviewCount: 14,
+      reviewAvg: 0,
+      reviewCount: 0,
     }
-    let id = window.location.pathname
-    axios.get(`/title${id}`)
-      .then(response => this.setState({titleData: response.data}))
-    axios.get(`/reviews${id}`)
-      .then(response => {
-        let reviewCount = response.data.reviews.length;
-        let reviewAvg = response.data.reviews.reduce((acc, obj) => acc + obj.reviewRating, 0) / reviewCount;
-        this.setState({reviewAvg, reviewCount})
-      });
+    this.getData();
   };
+
+  getData() {
+    let id = window.location.pathname
+    Promise.all([
+      axios.get(`/title${id}`),
+      axios.get(`/reviews${id}`)
+    ])
+      .then(responses => {
+        let reviewCount = responses[1].data.length;
+        let reviewAvg = responses[1].data.map(obj => obj.rating).reduce((acc, cur) => acc + cur)/reviewCount
+        this.setState({titleData: responses[0].data, reviewCount, reviewAvg})
+      })
+      .catch(err => console.log(err))
+  }
 
   render() {
     return (
       <>
         <Banner
           count={this.state.reviewCount}
-          buy={this.props.buy ? this.props.buy : "Buy"}
           titleData={this.state.titleData}
         />
           <Title title={this.state.titleData.title}/>
