@@ -49,7 +49,7 @@ background-color: ${(props) => props.buy === 'false' ? '#fa4616' : 'black'};
 color: white;
 transition: transform .3s ease;
 :hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 `;
 
