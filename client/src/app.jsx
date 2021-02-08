@@ -24,7 +24,9 @@ class App extends React.Component {
       axios.get(`/reviews${id}`)
     ])
       .then(responses => {
-        this.setState({titleData: responses[0].data, reviews: responses[1].data})
+        let reviewCount = responses[1].data.length;
+        let reviewAvg = responses[1].data.map(obj => obj.rating).reduce((acc, cur) => acc + cur)/reviewCount
+        this.setState({titleData: responses[0].data, reviewCount, reviewAvg})
       })
       .catch(err => console.log(err))
   }

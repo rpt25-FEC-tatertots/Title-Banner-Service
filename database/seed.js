@@ -28,7 +28,7 @@ db.serialize(()=>{
     db.run(`insert into categories (id, categoryName) values (${j}, '${faker.commerce.department()}')`, (err) => console.log(`inserted ${j} into categories`, err));
   }
   for (let k = 1; k < 5000; k++) {
-    db.run(`insert into reviews (id, review, rating, productID) values (${k},'${faker.lorem.sentence()}',${faker.random.number({min: 1, max: 5})},${faker.random.number({min: 1, max: 100})})`, (err) => console.log(`inserted ${k} into reviews`))
+    db.run(`insert into reviews (id, review, rating, productID) values (${k},'${faker.lorem.sentence()}',${faker.random.number({min: 2, max: 5})},${faker.random.number({min: 1, max: 100})})`, (err) => console.log(`inserted ${k} into reviews`))
   }
   console.log('seeding completed')
 })
