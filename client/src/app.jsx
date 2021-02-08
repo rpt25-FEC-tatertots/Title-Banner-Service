@@ -10,36 +10,30 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      hash: window.location.hash,
       titleData: {title: '', categoryName: ''},
-      reviewAvg: 4.7,
-      reviewCount: 14,
+      reviewAvg: 0,
+      reviewCount: 0,
     }
-    let id = window.location.pathname
-    axios.get(`/title${id}`)
-      .then(response => this.setState({titleData: response.data}))
-    axios.get(`/reviews${id}`)
-      .then(response => {
-        let reviewCount = response.data.reviews.length;
-        let reviewAvg = response.data.reviews.reduce((acc, obj) => acc + obj.reviewRating, 0) / reviewCount;
-        this.setState({reviewAvg, reviewCount})
-      });
+    this.getData();
   };
 
-  componentDidMount() {
-    window.addEventListener('hashchange', () => {
-      this.setState({hash: window.location.hash})
-    })
+  getData() {
+    let id = window.location.pathname
+    Promise.all([
+      axios.get(`/title${id}`),
+      axios.get(`/reviews${id}`)
+    ])
+      .then(responses => {
+        this.setState({titleData: responses[0].data, reviews: responses[1].data})
+      })
+      .catch(err => console.log(err))
   }
-  componentWillUnmount() {
-    window.removeEventListener('hashchange')
-  }
+
   render() {
     return (
       <>
         <Banner
           count={this.state.reviewCount}
-          buy={this.state.hash}
           titleData={this.state.titleData}
         />
           <Title title={this.state.titleData.title}/>

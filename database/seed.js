@@ -1,9 +1,7 @@
 const db = require('./index.js');
 const faker = require('faker');
+
 db.serialize(()=>{
-  db.run(`drop table titles`)
-  db.run(`drop table categories`)
-  db.run(`drop table reviews`)
   db.run(`CREATE TABLE IF NOT EXISTS titles (
     productID INTEGER PRIMARY KEY,
     title text,
@@ -29,8 +27,8 @@ db.serialize(()=>{
   for(let j = 1; j < 10; j++) {
     db.run(`insert into categories (id, categoryName) values (${j}, '${faker.commerce.department()}')`, (err) => console.log(`inserted ${j} into categories`, err));
   }
-  for (let k = 1, k < 5000; k++) {
-    db.run(`insert into reviews (id, review, rating, productID) values (${k},'${faker.lorem.sentence()}',${faker.random.number({min: 1, max: 5})},${faker.random.number({min: 1, max: 100})})`)
+  for (let k = 1; k < 5000; k++) {
+    db.run(`insert into reviews (id, review, rating, productID) values (${k},'${faker.lorem.sentence()}',${faker.random.number({min: 1, max: 5})},${faker.random.number({min: 1, max: 100})})`, (err) => console.log(`inserted ${k} into reviews`))
   }
   console.log('seeding completed')
 })

@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('db.sqlite')
 
-const doStuff = (query) => {
+const getOne = (query) => {
   return new Promise ((resolve, reject) => {
     db.get(query, (err, data) => {
       if(err) { reject(err) }
@@ -9,6 +9,15 @@ const doStuff = (query) => {
     });
   });
 };
+const getAll = (query) => {
+  return new Promise ((resolve, reject) => {
+    db.all(query, (err, rows) => {
+      if (err) { reject(err); }
+      else { resolve(rows); }
+    });
+  });
+}
 
 module.exports = db;
-db.doStuff = doStuff;
+db.getOne = getOne;
+db.getAll = getAll;

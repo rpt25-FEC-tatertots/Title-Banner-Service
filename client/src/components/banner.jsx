@@ -45,7 +45,7 @@ const BuyButton = styled.div`
 padding: .4rem 2rem;
 cursor: pointer;
 border-radius: 15px;
-background-color: ${(props) => props.buy === 'Buy' ? 'black' : '#fa4616'};
+background-color: ${(props) => props.buy === 'false' ? '#fa4616' : 'black'};
 color: white;
 transition: transform .3s ease;
 :hover {
@@ -59,14 +59,26 @@ const LinkContainer = styled.div`
 class Banner extends React.Component {
   constructor(props){
     super(props)
-    this.state = {scrollPosition: 0}
+    this.state = {
+      hash: '',
+      buttonText: 'false',
+      scrollPosition: 0,
+      scrollingDown: false
+    }
     this.scrollHandle = this.scrollHandle.bind(this);
   }
   componentDidMount() {
     window.addEventListener('scroll', this.scrollHandle)
+    window.addEventListener('hashchange', () => {
+      let buttonText = window.location.hash.split('=')[1]
+      this.setState({hash: window.location.hash, buttonText })
+    })
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.scrollHandle);
+    window.removeEventListener('hashchange', () => {
+      this.setState({hash: window.location.hash})
+    });
   }
   scrollHandle() {
     if(window.pageYOffset > this.state.scrollPosition) {
@@ -80,12 +92,9 @@ class Banner extends React.Component {
     view.scrollIntoView({behavior: 'smooth'});
   }
   render() {
-    const search = this.props.location;
-    const name = new URLSearchParams(search).get("OOS");
+    let { buttonText, scrollingDown } = this.state;
     return (
-      <NavbarContainer id="banner" scrollingDown={this.state.scrollingDown}>
-        {console.log(search)}
-        {/* {console.log(name)} */}
+      <NavbarContainer id="banner" scrollingDown={scrollingDown}>
         <Navbar>
         <LinkContainer>
           <Links href=''>{this.props.titleData.categoryName}</Links>
@@ -95,7 +104,12 @@ class Banner extends React.Component {
           <BuyInfo onClick={()=> this.scrollTo("reviews")}>{this.props.count} Reviews</BuyInfo>
           <BuyInfo onClick={() => document.getElementById('guide').click()}>Size{' & '}Fit</BuyInfo>
           <BuyInfo onClick={()=> this.scrollTo("impact")}>Impact</BuyInfo>
-          <BuyButton onClick={() => document.getElementById('buy').click()} >{this.props.buy}</BuyButton>
+          <BuyButton
+            onClick={buttonText === 'false' ? () => document.getElementById('buy').click() : () => this.scrollTo('inventory')}
+            buy={buttonText}
+          >
+          {buttonText === 'false' ? 'Add to Bag' : 'Buy'}
+          </BuyButton>
         </BuyContainer>
         </Navbar>
   </NavbarContainer >

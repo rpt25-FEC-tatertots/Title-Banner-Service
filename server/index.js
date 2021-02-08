@@ -8,18 +8,20 @@ App.use(express.static('./public/dist'));
 App.use('/:productID/', express.static('./public/dist'));
 
 App.get('/title/:productID', (req, res) => {
-  db.doStuff(`select productID, title, categoryName from titles INNER JOIN categories on titles.category = categories.id where productid = '${req.params.productID}'`)
+  db.getOne(`select productID, title, categoryName from titles INNER JOIN categories on titles.category = categories.id where productid = '${req.params.productID}'`)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => res.status(500).send(err.message))
 });
 App.get('/reviews/:productID', (req, res) => {
-  db.doStuff(`select rating from reviews where productid = '${req.params.productID}'`)
+  db.getAll(`select rating from reviews where productid = '${req.params.productID}'`)
     .then(data => {
       res.send(data)
     })
-    .catch((err) => res.status(500).send(err.message))
+    .catch((err) => {
+      res.status(500).send(err.message)
+    });
 });
 
 
