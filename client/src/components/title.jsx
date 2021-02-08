@@ -7,8 +7,7 @@ justify-content: center;
 padding: 2rem 0 0 0;
 `
 const TitleBox = styled.h1`
-}
-font-size: 3.5rem;
+font-size: 2.7em;
 flex-shrink: 0;
 width: 33%;
 max-width: 48rem;
