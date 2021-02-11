@@ -101,7 +101,6 @@ class Banner extends React.Component {
           <Links href=''> > {this.props.titleData.title}</Links>
         </LinkContainer>
         <BuyContainer>
-          {console.log(buttonText)}
           <BuyInfo onClick={()=> this.scrollTo("reviews")}>{this.props.count} Reviews</BuyInfo>
           <BuyInfo onClick={() => document.getElementById('guide').click()}>Size{' & '}Fit</BuyInfo>
           <BuyInfo onClick={()=> this.scrollTo("impact")}>Impact</BuyInfo>
