@@ -60,8 +60,7 @@ class Banner extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      hash: '',
-      buttonText: 'false',
+      hash: '#/?OOS=false&colorIndex=0',
       scrollPosition: 0,
       scrollingDown: false
     }
@@ -70,7 +69,7 @@ class Banner extends React.Component {
   componentDidMount() {
     window.addEventListener('scroll', this.scrollHandle)
     window.addEventListener('hashchange', () => {
-      let buttonText = window.location.hash.split('=')[1]
+      let buttonText = window.location.hash.split('&')[0].split('=')[1]
       this.setState({hash: window.location.hash, buttonText })
     })
   }
@@ -92,7 +91,8 @@ class Banner extends React.Component {
     view.scrollIntoView({behavior: 'smooth'});
   }
   render() {
-    let { buttonText, scrollingDown } = this.state;
+    let { hash, scrollingDown } = this.state;
+    let buttonText = hash.split('&')[0].split('=')[1];
     return (
       <NavbarContainer id="banner" scrollingDown={scrollingDown}>
         <Navbar>
@@ -101,6 +101,7 @@ class Banner extends React.Component {
           <Links href=''> > {this.props.titleData.title}</Links>
         </LinkContainer>
         <BuyContainer>
+          {console.log(buttonText)}
           <BuyInfo onClick={()=> this.scrollTo("reviews")}>{this.props.count} Reviews</BuyInfo>
           <BuyInfo onClick={() => document.getElementById('guide').click()}>Size{' & '}Fit</BuyInfo>
           <BuyInfo onClick={()=> this.scrollTo("impact")}>Impact</BuyInfo>
