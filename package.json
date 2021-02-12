@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "node ./database/seed.js",
     "client-dev": "webpack -d --watch",
-    "server-dev": "nodemon ./server"
+    "server-dev": "nodemon ./server",
+    "build": "webpack --mode=development"
   },
   "repository": {
     "type": "git",
