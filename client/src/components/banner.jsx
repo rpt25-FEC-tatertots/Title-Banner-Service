@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-const NavbarContainer = styled.div`
+const NavbarContainer = window.styled.div`
 width: 100%;
 min-height: 5rem;
 display: flex;
@@ -16,32 +16,32 @@ z-index: 100;
   z-index: -1;
 }
 `;
-const Navbar = styled.div`
+const Navbar = window.styled.div`
 padding: 0 4rem;
 width: 100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
 `;
-const Links = styled.a`
+const Links = window.styled.a`
 font-weight: 600;
 text-transform: none;
 :visited {
   color: inherit;
 }
 `;
-const BuyContainer = styled.div`
+const BuyContainer = window.styled.div`
 display: flex;
 justify-content: space-around;
 align-items: center;
 `;
-const BuyInfo = styled.div`
+const BuyInfo = window.styled.div`
 cursor: pointer;
 font-size: 16px;
 color: black;
 margin: 0 1rem 0 0;
 `;
-const BuyButton = styled.div`
+const BuyButton = window.styled.div`
 padding: .4rem 2rem;
 cursor: pointer;
 border-radius: 15px;
@@ -53,7 +53,7 @@ transition: transform .3s ease;
 }
 `;
 
-const LinkContainer = styled.div`
+const LinkContainer = window.styled.div`
 `;
 
 class Banner extends React.Component {
@@ -71,12 +71,13 @@ class Banner extends React.Component {
     window.addEventListener('hashchange', () => {
       let buttonText = window.location.hash.split('&')[0].split('=')[1]
       this.setState({hash: window.location.hash, buttonText })
-    })
+    });
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.scrollHandle);
     window.removeEventListener('hashchange', () => {
-      this.setState({hash: window.location.hash})
+      let buttonText = window.location.hash.split('&')[0].split('=')[1]
+      this.setState({hash: window.location.hash, buttonText })
     });
   }
   scrollHandle() {

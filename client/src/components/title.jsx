@@ -1,12 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 
-const TitleContainer = styled.div`
+const TitleContainer = window.styled.div`
 display: flex;
 justify-content: center;
 padding: 2rem 0 0 0;
 `
-const TitleBox = styled.h1`
+const TitleBox = window.styled.h1`
 font-size: 2.7em;
 flex-shrink: 0;
 width: 33%;
