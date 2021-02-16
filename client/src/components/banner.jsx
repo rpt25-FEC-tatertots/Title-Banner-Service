@@ -37,6 +37,15 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 `;
+const Nav2 = window.styled.div`
+background-color: white;
+width: 100%;
+color: black;
+font-family: Nunito Sans;
+display: flex;
+justify-content: space-between;
+align-items: center;
+`;
 const BannerContainer = window.styled.div`
 font-family: Nunito Sans;
 width: 100%;
@@ -116,12 +125,14 @@ class Banner extends React.Component {
       showShop: 0,
       showActivism: 0,
       showStories: 0,
+      screenWidth: window.innerWidth,
     }
     this.scrollHandle = this.scrollHandle.bind(this);
     this.shopHandle = this.shopHandle.bind(this);
     this.sportHandle = this.sportHandle.bind(this);
     this.storiesHandle = this.storiesHandle.bind(this);
     this.activismHandle = this.activismHandle.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
   componentDidMount() {
     window.addEventListener('scroll', this.scrollHandle)
@@ -129,6 +140,7 @@ class Banner extends React.Component {
       let buttonText = window.location.hash.split('&')[0].split('=')[1]
       this.setState({hash: window.location.hash, buttonText })
     });
+    window.addEventListener('resize', this.handleResize)
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.scrollHandle);
@@ -136,6 +148,10 @@ class Banner extends React.Component {
       let buttonText = window.location.hash.split('&')[0].split('=')[1]
       this.setState({hash: window.location.hash, buttonText })
     });
+    window.removeEventListener('resize', this.handleResize);
+  }
+  handleResize() {
+    this.setState({screenWidth: window.innerWidth})
   }
   sportHandle() {
     let showSport = this.state.showSport === 1 ? 0 : 1;
@@ -165,7 +181,7 @@ class Banner extends React.Component {
     view.scrollIntoView({behavior: 'smooth'});
   }
   render() {
-    let { hash, scrollingDown, showShop, showSport, showStories, showActivism } = this.state;
+    let { hash, scrollingDown, showShop, showSport, showStories, showActivism, screenWidth } = this.state;
     let buttonText = hash.split('&')[0].split('=')[1];
     return (
       <>
@@ -188,6 +204,7 @@ class Banner extends React.Component {
             </BuyContainer>
           </DropBanner>
         </BannerContainer >
+        {screenWidth > 991 ? (
         <Nav>
           <h2>Patagonia®</h2>
           <LinksContainer>
@@ -205,6 +222,7 @@ class Banner extends React.Component {
               onMouseLeave={this.sportHandle}>
               <Tag opacity={showSport}></Tag>
               <h4>Sports</h4>
+              {showSport ? <SportModal opacity={showSport} /> : null}
             </Link>
             <Link onMouseEnter={this.storiesHandle}
               onMouseLeave={this.storiesHandle}>
@@ -217,9 +235,17 @@ class Banner extends React.Component {
             <Icon src="bag.svg" />
             <Icon src="equals.svg" />
           </IconContainer>
-        </Nav>
-        <ShopModal opacity={showShop}/>
-        <SportModal opacity={showSport}/>
+        </Nav>) :
+          (<Nav2>
+            <Icon src="bag.svg" />
+            <h1>Patagonia®</h1>
+            <IconContainer>
+            <Icon src="glass.svg" />
+            <Icon src="equals.svg" />
+            </IconContainer>
+          </Nav2>)}
+
+
       </>
     )
   }
