@@ -73,7 +73,7 @@ align-items: center;
 const Links = window.styled.a`
 font-family: Nunito Sans;
 font-weight: 600;
-text-transform: none;
+text-decoration: none;
 :visited {
   color: inherit;
 }
@@ -212,6 +212,7 @@ class Banner extends React.Component {
               onMouseLeave={this.shopHandle}>
               <Tag opacity={showShop}></Tag>
               <h4>Shop</h4>
+              {showShop ? <ShopModal opacity={showShop} /> : null}
             </Link>
             <Link onMouseEnter={this.activismHandle}
               onMouseLeave={this.activismHandle}>

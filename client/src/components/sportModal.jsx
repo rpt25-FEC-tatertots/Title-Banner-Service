@@ -9,17 +9,19 @@ color: white;
 width: 100vw;
 transition: opacity .5s ease;
 opacity: ${(props) => props.opacity};
-z-index: ${(props) => props.opacity === 1 ? 2 : -100}
+display: flex;
+justify-content: center;
 `;
 const Row = window.styled.div`
-padding: 1em 20em;
+max-width: 33em;
+padding: 2em;
 display: flex;
 flex-wrap: wrap;
 `;
 const Header = window.styled.div`
 display: flex;
 flex-direction: column;
-padding: 0 5px;
+padding: 0 .5em;
 `;
 const SportModal = ({ opacity }) => {
   return (
@@ -31,7 +33,6 @@ const SportModal = ({ opacity }) => {
           <a>Shop Men's</a>
           <a>Shop Women's</a>
         </Header>
-
         <Header>
           <h4>Surfing</h4>
           <a>Community</a>
