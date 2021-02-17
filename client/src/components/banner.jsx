@@ -232,17 +232,17 @@ class Banner extends React.Component {
             </Link>
           </LinksContainer>
           <IconContainer>
-            <Icon src="glass.svg" />
-            <Icon src="bag.svg" />
-            <Icon src="equals.svg" />
+            <Icon src="./glass.svg" />
+            <Icon src="./bag.svg" />
+            <Icon src="./equals.svg" />
           </IconContainer>
         </Nav>) :
           (<Nav2>
-            <Icon src="bag.svg" />
+            <Icon src="./bag.svg" />
             <h1>Patagonia®</h1>
             <IconContainer>
-            <Icon src="glass.svg" />
-            <Icon src="equals.svg" />
+            <Icon src="./glass.svg" />
+            <Icon src="./equals.svg" />
             </IconContainer>
           </Nav2>)}
 
