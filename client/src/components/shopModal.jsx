@@ -37,13 +37,18 @@ const StyledMenuItem = window.styled.div`
   text-decoration: underline;
 }
 `;
+const StyledH4 = window.styled.h4`
+:hover {
+  text-decoration: underline;
+}
+`;
 const ShopModal = ({ opacity }) => {
   return (
     <ShopModalBase opacity={opacity}>
       <Row>
 
       <Column>
-        <h4>Women's</h4>
+        <StyledH4 >Women's</StyledH4>
         <StyledMenuItem>Shop All</StyledMenuItem>
         <StyledMenuItem>New Arrivals</StyledMenuItem>
         <StyledMenuItem>Jackets &amp; Vests</StyledMenuItem>
@@ -67,7 +72,7 @@ const ShopModal = ({ opacity }) => {
         <StyledMenuItem>Used Gear</StyledMenuItem>
       </Column>
       <Column>
-        <h4>Men's</h4>
+        <StyledH4>Men's</StyledH4>
         <StyledMenuItem>Shop All</StyledMenuItem>
         <StyledMenuItem>New Arrivals</StyledMenuItem>
         <StyledMenuItem>Jackets &amp; Vests</StyledMenuItem>
@@ -90,7 +95,7 @@ const ShopModal = ({ opacity }) => {
         <StyledMenuItem>Used Gear</StyledMenuItem>
       </Column>
       <Column>
-        <h4>Packs &amp; Gear</h4>
+        <StyledH4>Packs &amp; Gear</StyledH4>
         <StyledMenuItem>Shop All</StyledMenuItem>
         <StyledMenuItem>Used Packs &amp; Gear</StyledMenuItem>
         <StyledMenuItem>Sleeping Bags</StyledMenuItem>
@@ -105,7 +110,7 @@ const ShopModal = ({ opacity }) => {
         <StyledMenuItem>Gear Care</StyledMenuItem>
       </Column>
       <Column>
-        <h4>Kids &amp; Baby</h4>
+        <StyledH4>Kids &amp; Baby</StyledH4>
         <StyledMenuItem>Shop All</StyledMenuItem>
         <StyledMenuItem>Babys &amp; Toddlers</StyledMenuItem>
         <StyledMenuItem>Boys'</StyledMenuItem>
@@ -113,7 +118,7 @@ const ShopModal = ({ opacity }) => {
         <StyledMenuItem>Used Gear</StyledMenuItem>
         <br />
         <RedColumn>
-          <h4>Sale</h4>
+          <StyledH4>Sale</StyledH4>
           <StyledMenuItem>Men's</StyledMenuItem>
           <StyledMenuItem>Women's</StyledMenuItem>
           <StyledMenuItem>Kids' &amp; Baby</StyledMenuItem>
@@ -121,7 +126,7 @@ const ShopModal = ({ opacity }) => {
         </RedColumn>
       </Column>
       <Column>
-        <h4>Collections</h4>
+        <StyledH4>Collections</StyledH4>
         <StyledMenuItem>Patagonia Bestsellers</StyledMenuItem>
         <StyledMenuItem>Work Wear</StyledMenuItem>
         <StyledMenuItem>Nano Puff® Insulation</StyledMenuItem>
