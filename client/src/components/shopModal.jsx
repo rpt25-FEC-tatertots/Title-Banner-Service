@@ -32,6 +32,11 @@ flex-wrap: nowrap;
 flex-direction: column;
 padding: 0 .5em;
 `;
+const StyledMenuItem = window.styled.div`
+:hover {
+  text-decoration: underline;
+}
+`;
 const ShopModal = ({ opacity }) => {
   return (
     <ShopModalBase opacity={opacity}>
@@ -39,97 +44,97 @@ const ShopModal = ({ opacity }) => {
 
       <Column>
         <h4>Women's</h4>
-        <a>Shop All</a>
-        <a>New Arrivals</a>
-        <a>Jackets &amp; Vests</a>
-        <a>Fleeces</a>
-        <a>Sweatshirts &amp; Hoodies</a>
-        <a>Sweaters</a>
-        <a>Shirts</a>
-        <a>T-Shirts</a>
-        <a>Pants &amp; Jeans</a>
-        <a>Snow &amp; Alpine Pants</a>
-        <a>Shorts</a>
-        <a>Overalls &amp; Jumpsuits</a>
-        <a>Swimwear</a>
-        <a>Wetsuits</a>
-        <a>Waders &amp; Fishing Gear</a>
-        <a>Base Layers</a>
-        <a>Underwear &amp; Sports Bras</a>
-        <a>Socks</a>
-        <a>Hats &amp; Accessories</a>
-        <a>Work Wear</a>
-        <a>Used Gear</a>
+        <StyledMenuItem>Shop All</StyledMenuItem>
+        <StyledMenuItem>New Arrivals</StyledMenuItem>
+        <StyledMenuItem>Jackets &amp; Vests</StyledMenuItem>
+        <StyledMenuItem>Fleeces</StyledMenuItem>
+        <StyledMenuItem>Sweatshirts &amp; Hoodies</StyledMenuItem>
+        <StyledMenuItem>Sweaters</StyledMenuItem>
+        <StyledMenuItem>Shirts</StyledMenuItem>
+        <StyledMenuItem>T-Shirts</StyledMenuItem>
+        <StyledMenuItem>Pants &amp; Jeans</StyledMenuItem>
+        <StyledMenuItem>Snow &amp; Alpine Pants</StyledMenuItem>
+        <StyledMenuItem>Shorts</StyledMenuItem>
+        <StyledMenuItem>Overalls &amp; Jumpsuits</StyledMenuItem>
+        <StyledMenuItem>Swimwear</StyledMenuItem>
+        <StyledMenuItem>Wetsuits</StyledMenuItem>
+        <StyledMenuItem>Waders &amp; Fishing Gear</StyledMenuItem>
+        <StyledMenuItem>Base Layers</StyledMenuItem>
+        <StyledMenuItem>Underwear &amp; Sports Bras</StyledMenuItem>
+        <StyledMenuItem>Socks</StyledMenuItem>
+        <StyledMenuItem>Hats &amp; Accessories</StyledMenuItem>
+        <StyledMenuItem>Work Wear</StyledMenuItem>
+        <StyledMenuItem>Used Gear</StyledMenuItem>
       </Column>
       <Column>
         <h4>Men's</h4>
-        <a>Shop All</a>
-        <a>New Arrivals</a>
-        <a>Jackets &amp; Vests</a>
-        <a>Fleeces</a>
-        <a>Sweatshirts &amp; Hoodies</a>
-        <a>Sweaters</a>
-        <a>Shirts</a>
-        <a>T-Shirts</a>
-        <a>Pants &amp; Jeans</a>
-        <a>Snow &amp; Alpine Pants</a>
-        <a>Shorts</a>
-        <a>Boardshorts</a>
-        <a>Wetsuits</a>
-        <a>Waders &amp; Fishing Gear</a>
-        <a>Base Layers</a>
-        <a>Underwear</a>
-        <a>Socks</a>
-        <a>Hats &amp; Accessories</a>
-        <a>Work Wear</a>
-        <a>Used Gear</a>
+        <StyledMenuItem>Shop All</StyledMenuItem>
+        <StyledMenuItem>New Arrivals</StyledMenuItem>
+        <StyledMenuItem>Jackets &amp; Vests</StyledMenuItem>
+        <StyledMenuItem>Fleeces</StyledMenuItem>
+        <StyledMenuItem>Sweatshirts &amp; Hoodies</StyledMenuItem>
+        <StyledMenuItem>Sweaters</StyledMenuItem>
+        <StyledMenuItem>Shirts</StyledMenuItem>
+        <StyledMenuItem>T-Shirts</StyledMenuItem>
+        <StyledMenuItem>Pants &amp; Jeans</StyledMenuItem>
+        <StyledMenuItem>Snow &amp; Alpine Pants</StyledMenuItem>
+        <StyledMenuItem>Shorts</StyledMenuItem>
+        <StyledMenuItem>Boardshorts</StyledMenuItem>
+        <StyledMenuItem>Wetsuits</StyledMenuItem>
+        <StyledMenuItem>Waders &amp; Fishing Gear</StyledMenuItem>
+        <StyledMenuItem>Base Layers</StyledMenuItem>
+        <StyledMenuItem>Underwear</StyledMenuItem>
+        <StyledMenuItem>Socks</StyledMenuItem>
+        <StyledMenuItem>Hats &amp; Accessories</StyledMenuItem>
+        <StyledMenuItem>Work Wear</StyledMenuItem>
+        <StyledMenuItem>Used Gear</StyledMenuItem>
       </Column>
       <Column>
         <h4>Packs &amp; Gear</h4>
-        <a>Shop All</a>
-        <a>Used Packs &amp; Gear</a>
-        <a>Sleeping Bags</a>
-        <a>Black Hole® Bags</a>
-        <a>Backpacks</a>
-        <a>Laptop Bags</a>
-        <a>Totes, Slings, &amp; Waist Packs</a>
-        <a>Duffel &amp; Travel Bags</a>
-        <a>Technical Packs</a>
-        <a>Water Protective Bags</a>
-        <a>Water Bottles &amp; More</a>
-        <a>Gear Care</a>
+        <StyledMenuItem>Shop All</StyledMenuItem>
+        <StyledMenuItem>Used Packs &amp; Gear</StyledMenuItem>
+        <StyledMenuItem>Sleeping Bags</StyledMenuItem>
+        <StyledMenuItem>Black Hole® Bags</StyledMenuItem>
+        <StyledMenuItem>Backpacks</StyledMenuItem>
+        <StyledMenuItem>Laptop Bags</StyledMenuItem>
+        <StyledMenuItem>Totes, Slings, &amp; Waist Packs</StyledMenuItem>
+        <StyledMenuItem>Duffel &amp; Travel Bags</StyledMenuItem>
+        <StyledMenuItem>Technical Packs</StyledMenuItem>
+        <StyledMenuItem>Water Protective Bags</StyledMenuItem>
+        <StyledMenuItem>Water Bottles &amp; More</StyledMenuItem>
+        <StyledMenuItem>Gear Care</StyledMenuItem>
       </Column>
       <Column>
         <h4>Kids &amp; Baby</h4>
-        <a>Shop All</a>
-        <a>Babys &amp; Toddlers</a>
-        <a>Boys'</a>
-        <a>Girls'</a>
-        <a>Used Gear</a>
+        <StyledMenuItem>Shop All</StyledMenuItem>
+        <StyledMenuItem>Babys &amp; Toddlers</StyledMenuItem>
+        <StyledMenuItem>Boys'</StyledMenuItem>
+        <StyledMenuItem>Girls'</StyledMenuItem>
+        <StyledMenuItem>Used Gear</StyledMenuItem>
         <br />
         <RedColumn>
           <h4>Sale</h4>
-          <a>Men's</a>
-          <a>Women's</a>
-          <a>Kids' &amp; Baby</a>
-          <a>Packs &amp; Gear</a>
+          <StyledMenuItem>Men's</StyledMenuItem>
+          <StyledMenuItem>Women's</StyledMenuItem>
+          <StyledMenuItem>Kids' &amp; Baby</StyledMenuItem>
+          <StyledMenuItem>Packs &amp; Gear</StyledMenuItem>
         </RedColumn>
       </Column>
       <Column>
         <h4>Collections</h4>
-        <a>Patagonia Bestsellers</a>
-        <a>Work Wear</a>
-        <a>Nano Puff® Insulation</a>
-        <a>Fundamentals</a>
-        <a>fleecelab</a>
-        <a>Technical Insulation Guide</a>
-        <a>R1® Air</a>
+        <StyledMenuItem>Patagonia Bestsellers</StyledMenuItem>
+        <StyledMenuItem>Work Wear</StyledMenuItem>
+        <StyledMenuItem>Nano Puff® Insulation</StyledMenuItem>
+        <StyledMenuItem>Fundamentals</StyledMenuItem>
+        <StyledMenuItem>fleecelab</StyledMenuItem>
+        <StyledMenuItem>Technical Insulation Guide</StyledMenuItem>
+        <StyledMenuItem>R1® Air</StyledMenuItem>
         <br/>
         <br/>
-        <a>Patagonia Provisions</a>
-        <a>Used Gear</a>
-        <a>Books</a>
-        <a>Gift Cards</a>
+        <StyledMenuItem>Patagonia Provisions</StyledMenuItem>
+        <StyledMenuItem>Used Gear</StyledMenuItem>
+        <StyledMenuItem>Books</StyledMenuItem>
+        <StyledMenuItem>Gift Cards</StyledMenuItem>
       </Column>
       </Row>
     </ShopModalBase>
