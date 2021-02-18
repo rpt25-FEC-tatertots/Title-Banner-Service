@@ -8,6 +8,10 @@ module.exports = {
     path: path.join(__dirname, 'public/dist'),
     filename: "title_banner.js"
   },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  },
   module: {
     rules: [
       {

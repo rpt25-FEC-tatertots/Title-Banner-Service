@@ -1,7 +1,53 @@
 import React from 'react';
-import styled from 'styled-components';
+import ShopModal from './shopModal.jsx';
+import SportModal from './sportModal.jsx';
+// import styled from 'styled-components';
 
-const NavbarContainer = styled.div`
+const Tag = window.styled.div`
+background-color: black;
+position: absolute;
+top: 1px;
+width: 100%;
+height: 10px;
+border-radius: 10px;
+opacity: ${(props) => props.opacity | 0};
+transition: opacity .5s ease;
+`;
+const LinksContainer = window.styled.div`
+position: relative;
+display:flex;
+justify-content: space-between;
+align-items: center;
+`
+const Link = window.styled.div`
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0px 5px;
+cursor: pointer;
+align-text:center;
+`
+const Nav = window.styled.div`
+background-color: white;
+width: 100%;
+color: black;
+font-family: Nunito Sans;
+display: flex;
+justify-content: space-around;
+align-items: center;
+`;
+const Nav2 = window.styled.div`
+background-color: white;
+width: 100%;
+color: black;
+font-family: Nunito Sans;
+display: flex;
+justify-content: space-between;
+align-items: center;
+`;
+const BannerContainer = window.styled.div`
+font-family: Nunito Sans;
 width: 100%;
 min-height: 5rem;
 display: flex;
@@ -16,32 +62,37 @@ z-index: 100;
   z-index: -1;
 }
 `;
-const Navbar = styled.div`
+const DropBanner = window.styled.div`
+font-family: Nunito Sans;
 padding: 0 4rem;
 width: 100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
 `;
-const Links = styled.a`
+const Links = window.styled.a`
+font-family: Nunito Sans;
 font-weight: 600;
-text-transform: none;
+text-decoration: none;
 :visited {
   color: inherit;
 }
 `;
-const BuyContainer = styled.div`
+const BuyContainer = window.styled.div`
+font-family: Nunito Sans;
 display: flex;
 justify-content: space-around;
 align-items: center;
 `;
-const BuyInfo = styled.div`
+const BuyInfo = window.styled.div`
+font-family: Nunito Sans;
 cursor: pointer;
 font-size: 16px;
 color: black;
 margin: 0 1rem 0 0;
 `;
-const BuyButton = styled.div`
+const BuyButton = window.styled.div`
+font-family: Nunito Sans;
 padding: .4rem 2rem;
 cursor: pointer;
 border-radius: 15px;
@@ -52,8 +103,15 @@ transition: transform .3s ease;
   transform: scale(1.05);
 }
 `;
-
-const LinkContainer = styled.div`
+const IconContainer = window.styled.div`
+display: flex;
+`;
+const Icon = window.styled.img`
+height: 25px;
+width: 25px;
+margin: 10px;
+`;
+const LinkContainer = window.styled.div`
 `;
 
 class Banner extends React.Component {
@@ -62,22 +120,54 @@ class Banner extends React.Component {
     this.state = {
       hash: '#/?OOS=false&colorIndex=0',
       scrollPosition: 0,
-      scrollingDown: false
+      scrollingDown: false,
+      showSport: 0,
+      showShop: 0,
+      showActivism: 0,
+      showStories: 0,
+      screenWidth: window.innerWidth,
     }
     this.scrollHandle = this.scrollHandle.bind(this);
+    this.shopHandle = this.shopHandle.bind(this);
+    this.sportHandle = this.sportHandle.bind(this);
+    this.storiesHandle = this.storiesHandle.bind(this);
+    this.activismHandle = this.activismHandle.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
   componentDidMount() {
     window.addEventListener('scroll', this.scrollHandle)
     window.addEventListener('hashchange', () => {
       let buttonText = window.location.hash.split('&')[0].split('=')[1]
       this.setState({hash: window.location.hash, buttonText })
-    })
+    });
+    window.addEventListener('resize', this.handleResize)
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.scrollHandle);
     window.removeEventListener('hashchange', () => {
-      this.setState({hash: window.location.hash})
+      let buttonText = window.location.hash.split('&')[0].split('=')[1]
+      this.setState({hash: window.location.hash, buttonText })
     });
+    window.removeEventListener('resize', this.handleResize);
+  }
+  handleResize() {
+    this.setState({screenWidth: window.innerWidth})
+  }
+  sportHandle() {
+    let showSport = this.state.showSport === 1 ? 0 : 1;
+    this.setState({ showSport });
+  }
+  shopHandle() {
+    let showShop = this.state.showShop === 1 ? 0 : 1;
+    this.setState({ showShop })
+  }
+  storiesHandle() {
+    let showStories = this.state.showStories === 1 ? 0 : 1;
+    this.setState({ showStories })
+  }
+  activismHandle() {
+    let showActivism = this.state.showActivism === 1 ? 0 : 1;
+    this.setState({ showActivism })
   }
   scrollHandle() {
     if(window.pageYOffset > this.state.scrollPosition) {
@@ -91,29 +181,74 @@ class Banner extends React.Component {
     view.scrollIntoView({behavior: 'smooth'});
   }
   render() {
-    let { hash, scrollingDown } = this.state;
+    let { hash, scrollingDown, showShop, showSport, showStories, showActivism, screenWidth } = this.state;
     let buttonText = hash.split('&')[0].split('=')[1];
     return (
-      <NavbarContainer id="banner" scrollingDown={scrollingDown}>
-        <Navbar>
-        <LinkContainer>
-          <Links href=''>{this.props.titleData.categoryName}</Links>
-          <Links href=''> > {this.props.titleData.title}</Links>
-        </LinkContainer>
-        <BuyContainer>
-          <BuyInfo onClick={()=> this.scrollTo("reviews")}>{this.props.count} Reviews</BuyInfo>
-          <BuyInfo onClick={() => document.getElementById('guide').click()}>Size{' & '}Fit</BuyInfo>
-          <BuyInfo onClick={()=> this.scrollTo("impact")}>Impact</BuyInfo>
-          <BuyButton
-            onClick={buttonText === 'false' ? () => document.getElementById('buy').click() : () => this.scrollTo('inventory')}
-            buy={buttonText}
-          >
-          {buttonText === 'false' ? 'Add to Bag' : 'Buy'}
-          </BuyButton>
-        </BuyContainer>
-        </Navbar>
-  </NavbarContainer >
-          )
+      <>
+        <BannerContainer id="banner" scrollingDown={scrollingDown}>
+          <DropBanner>
+            <LinkContainer>
+              <Links href=''>{this.props.titleData.categoryName}</Links>
+              <Links href=''> > {this.props.titleData.title}</Links>
+            </LinkContainer>
+            <BuyContainer>
+              <BuyInfo onClick={() => this.scrollTo("reviews")}>{this.props.count} Reviews</BuyInfo>
+              <BuyInfo onClick={() => document.getElementById('guide').click()}>Size{' & '}Fit</BuyInfo>
+              <BuyInfo onClick={() => this.scrollTo("impact")}>Impact</BuyInfo>
+              <BuyButton
+                onClick={buttonText === 'false' ? () => document.getElementById('buy').click() : () => this.scrollTo('inventory')}
+                buy={buttonText}
+                >
+                {buttonText === 'false' ? 'Add to Bag' : 'Buy'}
+              </BuyButton>
+            </BuyContainer>
+          </DropBanner>
+        </BannerContainer >
+        {screenWidth > 991 ? (
+        <Nav>
+          <h2>Patagonia®</h2>
+          <LinksContainer>
+            <Link onMouseEnter={this.shopHandle}
+              onMouseLeave={this.shopHandle}>
+              <Tag opacity={showShop}></Tag>
+              <h4>Shop</h4>
+              {showShop ? <ShopModal opacity={showShop} /> : null}
+            </Link>
+            <Link onMouseEnter={this.activismHandle}
+              onMouseLeave={this.activismHandle}>
+              <Tag opacity={showActivism}></Tag>
+              <h4>Activism</h4>
+            </Link>
+            <Link onMouseEnter={this.sportHandle}
+              onMouseLeave={this.sportHandle}>
+              <Tag opacity={showSport}></Tag>
+              <h4>Sports</h4>
+              {showSport ? <SportModal opacity={showSport} /> : null}
+            </Link>
+            <Link onMouseEnter={this.storiesHandle}
+              onMouseLeave={this.storiesHandle}>
+              <Tag opacity={showStories}></Tag>
+              <h4>Stories</h4>
+            </Link>
+          </LinksContainer>
+          <IconContainer>
+            <Icon src="./glass.svg" />
+            <Icon src="./bag.svg" />
+            <Icon src="./equals.svg" />
+          </IconContainer>
+        </Nav>) :
+          (<Nav2>
+            <Icon src="./bag.svg" />
+            <h1>Patagonia®</h1>
+            <IconContainer>
+            <Icon src="./glass.svg" />
+            <Icon src="./equals.svg" />
+            </IconContainer>
+          </Nav2>)}
+
+
+      </>
+    )
   }
 };
 
