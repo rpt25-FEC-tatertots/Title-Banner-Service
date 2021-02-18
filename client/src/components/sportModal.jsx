@@ -1,8 +1,9 @@
 import React from 'react';
 
 const SportModalBase = window.styled.div`
-position: absolute;
-top: 50px;
+position: fixed;
+top: 4em;
+left: 0;
 font-family: Nunito Sans;
 background-color: black;
 color: white;

@@ -1,9 +1,11 @@
 import React from 'react';
 
 const ShopModalBase = window.styled.div`
-position: absolute;
+position: fixed;
 font-family: Nunito Sans;
-top: 50px;
+top: 4em;
+left: 0;
+align-self: center;
 width: 100vw;
 background-color: black;
 color: white;
