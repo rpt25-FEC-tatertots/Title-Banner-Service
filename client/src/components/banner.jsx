@@ -232,9 +232,9 @@ class Banner extends React.Component {
             </Link>
           </LinksContainer>
           <IconContainer>
-            <Icon src="./glass.svg" />
-            <Icon src="./bag.svg" />
-            <Icon src="./equals.svg" />
+            <Icon src="https://rpt25-fec-tatertots-images.s3-us-west-1.amazonaws.com/glass.svg" />
+            <Icon src="https://rpt25-fec-tatertots-images.s3-us-west-1.amazonaws.com/bag.svg" />
+            <Icon src="https://rpt25-fec-tatertots-images.s3-us-west-1.amazonaws.com/equals.svg" />
           </IconContainer>
         </Nav>) :
           (<Nav2>
