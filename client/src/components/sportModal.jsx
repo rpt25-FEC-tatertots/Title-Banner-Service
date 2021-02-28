@@ -1,8 +1,9 @@
 import React from 'react';
 
 const SportModalBase = window.styled.div`
-position: absolute;
-top: 50px;
+position: fixed;
+top: 4em;
+left: 0;
 font-family: Nunito Sans;
 background-color: black;
 color: white;
@@ -23,51 +24,61 @@ display: flex;
 flex-direction: column;
 padding: 0 .5em;
 `;
+const StyledLi = window.styled.div`
+:hover {
+  text-decoration: underline;
+}
+`;
+const StyledH4 = window.styled.h4`
+:hover {
+  text-decoration: underline;
+}
+`;
 const SportModal = ({ opacity }) => {
   return (
     <SportModalBase opacity={opacity}>
       <Row>
         <Header>
-          <h4>Snow</h4>
-          <a>Community</a>
-          <a>Shop Men's</a>
-          <a>Shop Women's</a>
+          <StyledH4>Snow</StyledH4>
+          <StyledLi>Community</StyledLi>
+          <StyledLi>Shop Men's</StyledLi>
+          <StyledLi>Shop Women's</StyledLi>
         </Header>
         <Header>
-          <h4>Surfing</h4>
-          <a>Community</a>
-          <a>Shop Men's</a>
-          <a>Shop Women's</a>
+          <StyledH4>Surfing</StyledH4>
+          <StyledLi>Community</StyledLi>
+          <StyledLi>Shop Men's</StyledLi>
+          <StyledLi>Shop Women's</StyledLi>
         </Header>
         <Header>
-          <h4>Mountain Biking</h4>
-          <a>Community</a>
-          <a>Shop Men's</a>
-          <a>Shop Women's</a>
+          <StyledH4>Mountain Biking</StyledH4>
+          <StyledLi>Community</StyledLi>
+          <StyledLi>Shop Men's</StyledLi>
+          <StyledLi>Shop Women's</StyledLi>
         </Header>
         <Header>
-          <h4>Trail Running</h4>
-          <a>Community</a>
-          <a>Shop Men's</a>
-          <a>Shop Women's</a>
+          <StyledH4>Trail Running</StyledH4>
+          <StyledLi>Community</StyledLi>
+          <StyledLi>Shop Men's</StyledLi>
+          <StyledLi>Shop Women's</StyledLi>
         </Header>
         <Header>
-        <h4>Fly Fishing</h4>
-          <a>Community</a>
-          <a>Shop Men's</a>
-          <a>Shop Women's</a>
+        <StyledH4>Fly Fishing</StyledH4>
+          <StyledLi>Community</StyledLi>
+          <StyledLi>Shop Men's</StyledLi>
+          <StyledLi>Shop Women's</StyledLi>
         </Header>
         <Header>
-        <h4>Kite Surfing</h4>
-          <a>Community</a>
-          <a>Shop Men's</a>
-          <a>Shop Women's</a>
+        <StyledH4>Kite Surfing</StyledH4>
+          <StyledLi>Community</StyledLi>
+          <StyledLi>Shop Men's</StyledLi>
+          <StyledLi>Shop Women's</StyledLi>
         </Header>
         <Header>
-        <h4>Climbing</h4>
-          <a>Community</a>
-          <a>Shop Men's</a>
-          <a>Shop Women's</a>
+        <StyledH4>Climbing</StyledH4>
+          <StyledLi>Community</StyledLi>
+          <StyledLi>Shop Men's</StyledLi>
+          <StyledLi>Shop Women's</StyledLi>
         </Header>
       </Row>
     </SportModalBase>

@@ -194,7 +194,7 @@ class Banner extends React.Component {
             <BuyContainer>
               <BuyInfo onClick={() => this.scrollTo("reviews")}>{this.props.count} Reviews</BuyInfo>
               <BuyInfo onClick={() => document.getElementById('guide').click()}>Size{' & '}Fit</BuyInfo>
-              <BuyInfo onClick={() => this.scrollTo("impact")}>Impact</BuyInfo>
+              <BuyInfo onClick={() => this.scrollTo("sourcing")}>Impact</BuyInfo>
               <BuyButton
                 onClick={buttonText === 'false' ? () => document.getElementById('buy').click() : () => this.scrollTo('inventory')}
                 buy={buttonText}
@@ -232,9 +232,9 @@ class Banner extends React.Component {
             </Link>
           </LinksContainer>
           <IconContainer>
-            <Icon src="./glass.svg" />
-            <Icon src="./bag.svg" />
-            <Icon src="./equals.svg" />
+            <Icon src="https://rpt25-fec-tatertots-images.s3-us-west-1.amazonaws.com/glass.svg" />
+            <Icon src="https://rpt25-fec-tatertots-images.s3-us-west-1.amazonaws.com/bag.svg" />
+            <Icon src="https://rpt25-fec-tatertots-images.s3-us-west-1.amazonaws.com/equals.svg" />
           </IconContainer>
         </Nav>) :
           (<Nav2>
